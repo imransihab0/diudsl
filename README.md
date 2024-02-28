@@ -1,6 +1,6 @@
 # diudsl
 
-a sample ui for data science lab
+a sample UI for data science lab
 
 ## Getting Started
 
