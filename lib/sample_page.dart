@@ -347,7 +347,8 @@ class _samplePageState extends State<samplePage> {
 
             // background part --->
 
-            Positioned(
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 1000),
               top: Shape_posY,
               left: Shape_posX,
               child: Stack(clipBehavior: Clip.none, children: [
@@ -381,7 +382,8 @@ class _samplePageState extends State<samplePage> {
 
             // --> foreground image
 
-            Positioned(
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 1000),
               top: image_posY,
               left: image_posX,
               child: Stack(children: [
@@ -396,10 +398,10 @@ class _samplePageState extends State<samplePage> {
                             color: Colors.black))),
                 ClipRect(
                     child: Image.asset(
-                  "assets/images/inbg.png",
-                  height: image_height,
-                  width: image_width,
-                ))
+                      "assets/images/inbg.png",
+                      height: image_height,
+                      width: image_width,
+                    ))
               ]),
             ),
 
