@@ -8,6 +8,7 @@ class samplePage extends StatefulWidget {
 }
 
 class _samplePageState extends State<samplePage> {
+
   // properties of the front image
   double image_height = 400,
       image_width = 400,
