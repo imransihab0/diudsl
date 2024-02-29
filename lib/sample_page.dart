@@ -1,8 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class samplePage extends StatefulWidget {
   const samplePage({super.key});
@@ -13,182 +9,199 @@ class samplePage extends StatefulWidget {
 
 class _samplePageState extends State<samplePage> {
   // properties of the front image
-  double image_height = 400, image_width = 400,
-      image_posX = -10,image_posY=400;
+  double image_height = 400,
+      image_width = 400,
+      image_posX = -10,
+      image_posY = 400;
 
   // Properties of the shape
-  double FrontShape_height = 550, FrontShape_width = 400 ,
-      BackShape_height = 800, BackShape_width = 480,
-      Shape_posX = 80, Shape_posY = 380;
+  double FrontShape_height = 550,
+      FrontShape_width = 400,
+      BackShape_height = 800,
+      BackShape_width = 480,
+      Shape_posX = 80,
+      Shape_posY = 380;
 
   bool pageChanged = false;
 
   // Function to change page content
-  void page_change()
-  {
+  void page_change() {
     setState(() {
-      BackShape_height +=800;
-      FrontShape_height +=800;
-      Shape_posY -=200;
+      BackShape_height += 800;
+      FrontShape_height += 800;
+      Shape_posY -= 200;
       image_height += 20;
       image_width += 20;
-      image_posX+=10;
-      image_posY-=50;
+      image_posX += 10;
+      image_posY -= 50;
       pageChanged = !pageChanged;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
+    double mq = MediaQuery.of(context).size.width;
+
     Column first_page = Column(
       children: [
         // Research
-        ElevatedButton(
-          onPressed: page_change,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: page_change,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 150),
-          ),
-          child: const Text(
-            'Research',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Research',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // Our Team
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 150),
-          ),
-          child: const Text(
-            'Our Team',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Our Team',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // Training
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 155),
-          ),
-          child: const Text(
-            'Training',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Training',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // Resources
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 146),
-          ),
-          child: const Text(
-            'Resources',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Resources',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // About Us
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 152),
-          ),
-          child: const Text(
-            'About Us',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'About Us',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // Contact
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        Container(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 156),
-          ),
-          child: const Text(
-            'Contact',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Contact',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
@@ -245,22 +258,15 @@ class _samplePageState extends State<samplePage> {
             ),
           ),
         ),
-
-
       ],
     );
-
-
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Stack(
-
-
           children: [
-
             // for header --->
             Positioned(
               top: 0,
@@ -311,80 +317,74 @@ class _samplePageState extends State<samplePage> {
             ),
             // <--- header section end
 
-
-
-
             // elevated button section --->
 
             Positioned(
                 top: 80,
                 left: 20,
-                child: pageChanged?second_page:first_page
-            ),
+                child: pageChanged ? second_page : first_page),
 
             // <--- elevated button section end
-
-
 
             // background part --->
 
             Positioned(
               top: Shape_posY,
               left: Shape_posX,
-              child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned(
-                      right: 30,
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 800),
-                        height: BackShape_height,
-                        width: BackShape_width,
-                        decoration: const BoxDecoration(
-                            color: Color(0xffdedddc),
-                            borderRadius: BorderRadius.only(topLeft: Radius.elliptical(650, 1000), bottomLeft: Radius.elliptical(50,180))
-                        ),
-                      ),
-                    ),
-                    AnimatedContainer(
-                      duration: Duration(milliseconds: 800),
-                      height: FrontShape_height,
-                      width: FrontShape_width,
-                      decoration: const BoxDecoration(
-                          color: Color(0xff2d39c2),
-                          borderRadius: BorderRadius.only(topLeft: Radius.elliptical(600, 800), bottomLeft: Radius.elliptical(50,180))
-                      ),
-                    ),
-                  ]
-              ),
+              child: Stack(clipBehavior: Clip.none, children: [
+                Positioned(
+                  right: 30,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 800),
+                    height: BackShape_height,
+                    width: BackShape_width,
+                    decoration: const BoxDecoration(
+                        color: Color(0xffe6eaeb),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.elliptical(650, 1000),
+                            bottomLeft: Radius.elliptical(50, 180))),
+                  ),
+                ),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 800),
+                  height: FrontShape_height,
+                  width: FrontShape_width,
+                  decoration: const BoxDecoration(
+                      color: Color(0xFF1D458B),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.elliptical(600, 800),
+                          bottomLeft: Radius.elliptical(50, 180))),
+                ),
+              ]),
             ),
 
             // <--- background part end
-
-
-
 
             // --> foreground image
 
             Positioned(
               top: image_posY,
               left: image_posX,
-              child: Stack(
-                  children: [
-                    Positioned(
-                        top: MediaQuery.of(context).size.height*.1 - 85,
-                        left : MediaQuery.of(context).size.width*.1 - 45,
-                        child: Opacity(
-                            child: Image.asset("assets/images/inbg.png",height: image_height,width: image_width, color: Colors.black),
-                            opacity: 0.7)
-                    ),
-                    ClipRect(child: Image.asset("assets/images/inbg.png",height: image_height,width: image_width,))
-                  ]),
+              child: Stack(children: [
+                Positioned(
+                    top: MediaQuery.of(context).size.height * .1 - 85,
+                    left: MediaQuery.of(context).size.width * .1 - 45,
+                    child: Opacity(
+                        child: Image.asset("assets/images/inbg.png",
+                            height: image_height,
+                            width: image_width,
+                            color: Colors.black),
+                        opacity: 0.7)),
+                ClipRect(
+                    child: Image.asset(
+                  "assets/images/inbg.png",
+                  height: image_height,
+                  width: image_width,
+                ))
+              ]),
             ),
 
             // <-- foreground image end
-
-
 
             // for footer --->
             Positioned(
@@ -488,7 +488,6 @@ class _samplePageState extends State<samplePage> {
               ),
             )
             // <---footer section end
-
           ],
         ),
       ),
