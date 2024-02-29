@@ -1,4 +1,8 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class samplePage extends StatefulWidget {
   const samplePage({super.key});
@@ -8,312 +12,485 @@ class samplePage extends StatefulWidget {
 }
 
 class _samplePageState extends State<samplePage> {
+  // properties of the front image
+  double image_height = 400, image_width = 400,
+      image_posX = -10,image_posY=400;
+
+  // Properties of the shape
+  double FrontShape_height = 550, FrontShape_width = 400 ,
+      BackShape_height = 800, BackShape_width = 480,
+      Shape_posX = 80, Shape_posY = 380;
+
+  bool pageChanged = false;
+
+  // Function to change page content
+  void page_change()
+  {
+    setState(() {
+      BackShape_height +=800;
+      FrontShape_height +=800;
+      Shape_posY -=200;
+      image_height += 20;
+      image_width += 20;
+      image_posX+=10;
+      image_posY-=50;
+      pageChanged = !pageChanged;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
+    Column first_page = Column(
+      children: [
+        // Research
+        ElevatedButton(
+          onPressed: page_change,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 150),
+          ),
+          child: const Text(
+            'Research',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // Our Team
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 150),
+          ),
+          child: const Text(
+            'Our Team',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // Training
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 155),
+          ),
+          child: const Text(
+            'Training',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // Resources
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 146),
+          ),
+          child: const Text(
+            'Resources',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // About Us
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 152),
+          ),
+          child: const Text(
+            'About Us',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // Contact
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 156),
+          ),
+          child: const Text(
+            'Contact',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+      ],
+    );
+    Column second_page = Column(
+      children: [
+        // Research
+        ElevatedButton(
+          onPressed: page_change,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 150),
+          ),
+          child: const Text(
+            'Research',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+        // Our Team
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 0,
+            side: const BorderSide(
+              color: Colors.black,
+              width: 1,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 150),
+          ),
+          child: const Text(
+            'Our Team',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ),
+
+
+      ],
+    );
+
+
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // for header --->
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // dsl image section
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
 
-              const Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: Image(
-                  image: AssetImage('assets/images/dsl.png'),
-                  width: 100,
-                  height: 35,
-                ),
-              ),
 
-              // diu logo section
+          children: [
 
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
+            // for header --->
+            Positioned(
+              top: 0,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Image(
-                      image: AssetImage('assets/images/diu.png'),
-                      width: 100,
-                      height: 35,
+                    // dsl image section
+
+                    const Padding(
+                      padding: EdgeInsets.only(top: 30),
+                      child: Image(
+                        image: AssetImage('assets/images/dsl.png'),
+                        width: 100,
+                        height: 35,
+                      ),
                     ),
 
-                    // bell icon button --->
+                    // diu logo section
 
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        'assets/images/bell.png',
-                        width: 35,
-                        height: 35,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Row(
+                        children: [
+                          const Image(
+                            image: AssetImage('assets/images/diu.png'),
+                            width: 100,
+                            height: 35,
+                          ),
+
+                          // bell icon button --->
+
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              'assets/images/bell.png',
+                              width: 35,
+                              height: 35,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-          // <--- header section end
+            ),
+            // <--- header section end
 
-          // elevated button section --->
 
-          Column(
-            children: [
-              // Research
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 150),
-                ),
-                child: const Text(
-                  'Research',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
 
-              // Our Team
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 150),
-                ),
-                child: const Text(
-                  'Our Team',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
 
-              // Training
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 155),
-                ),
-                child: const Text(
-                  'Training',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
+            // elevated button section --->
 
-              // Resources
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 146),
-                ),
-                child: const Text(
-                  'Resources',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
+            Positioned(
+                top: 80,
+                left: 20,
+                child: pageChanged?second_page:first_page
+            ),
 
-              // About Us
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 152),
-                ),
-                child: const Text(
-                  'About Us',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
+            // <--- elevated button section end
 
-              // Contact
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 0,
-                  side: const BorderSide(
-                    color: Colors.black,
-                    width: 1,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 156),
-                ),
-                child: const Text(
-                  'Contact',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-              ),
-            ],
-          ),
 
-          // <--- elevated button section end
 
-          // for footer --->
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // Add 1st IconButton with Image
-              Column(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/1.png',
-                      width: 50,
-                      height: 50,
+            // background part --->
+
+            Positioned(
+              top: Shape_posY,
+              left: Shape_posX,
+              child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      right: 30,
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 800),
+                        height: BackShape_height,
+                        width: BackShape_width,
+                        decoration: const BoxDecoration(
+                            color: Color(0xffdedddc),
+                            borderRadius: BorderRadius.only(topLeft: Radius.elliptical(650, 1000), bottomLeft: Radius.elliptical(50,180))
+                        ),
+                      ),
                     ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'Home',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-
-              // Add 2nd IconButton with Image
-              Column(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/2.png',
-                      width: 50,
-                      height: 50,
+                    AnimatedContainer(
+                      duration: Duration(milliseconds: 800),
+                      height: FrontShape_height,
+                      width: FrontShape_width,
+                      decoration: const BoxDecoration(
+                          color: Color(0xff2d39c2),
+                          borderRadius: BorderRadius.only(topLeft: Radius.elliptical(600, 800), bottomLeft: Radius.elliptical(50,180))
+                      ),
                     ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'Events',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
+                  ]
               ),
+            ),
 
-              // Add 3rd IconButton with Image
-              Column(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/3.png',
-                      width: 50,
-                      height: 50,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'Menu',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
+            // <--- background part end
 
-              // Add 4th IconButton with Image
-              Column(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/4.png',
-                      width: 50,
-                      height: 50,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'DS Club',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
 
-              // Add 5th IconButton with Image
-              Column(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/5.png',
-                      width: 50,
-                      height: 50,
+
+
+            // --> foreground image
+
+            Positioned(
+              top: image_posY,
+              left: image_posX,
+              child: Stack(
+                  children: [
+                    Positioned(
+                        top: MediaQuery.of(context).size.height*.1 - 85,
+                        left : MediaQuery.of(context).size.width*.1 - 45,
+                        child: Opacity(
+                            child: Image.asset("assets/images/inbg.png",height: image_height,width: image_width, color: Colors.black),
+                            opacity: 0.7)
                     ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    'Profile',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
+                    ClipRect(child: Image.asset("assets/images/inbg.png",height: image_height,width: image_width,))
+                  ]),
+            ),
+
+            // <-- foreground image end
+
+
+
+            // for footer --->
+            Positioned(
+              bottom: 0,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Add 1st IconButton with Image
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/images/1.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          onPressed: () {},
+                        ),
+                        const Text(
+                          'Home',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+
+                    // Add 2nd IconButton with Image
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/images/2.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          onPressed: () {},
+                        ),
+                        const Text(
+                          'Events',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+
+                    // Add 3rd IconButton with Image
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/images/3.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          onPressed: () {},
+                        ),
+                        const Text(
+                          'Menu',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+
+                    // Add 4th IconButton with Image
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/images/4.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          onPressed: () {},
+                        ),
+                        const Text(
+                          'DS Club',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+
+                    // Add 5th IconButton with Image
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/images/5.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          onPressed: () {},
+                        ),
+                        const Text(
+                          'Profile',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ],
-          )
-          // <---footer section end
-        ],
+            )
+            // <---footer section end
+
+          ],
+        ),
       ),
     );
   }
