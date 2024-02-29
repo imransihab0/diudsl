@@ -213,7 +213,7 @@ class _samplePageState extends State<samplePage> {
         SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
-            onPressed: (){},
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
@@ -274,6 +274,7 @@ class _samplePageState extends State<samplePage> {
         child: Stack(
           children: [
             // for header --->
+
             Positioned(
               top: 0,
               child: SizedBox(
@@ -281,7 +282,7 @@ class _samplePageState extends State<samplePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // dsl image section
+                    // dsl image section --->
 
                     const Padding(
                       padding: EdgeInsets.only(top: 30),
@@ -292,7 +293,7 @@ class _samplePageState extends State<samplePage> {
                       ),
                     ),
 
-                    // diu logo section
+                    // diu logo section --->
 
                     Padding(
                       padding: const EdgeInsets.only(top: 30),
@@ -321,6 +322,7 @@ class _samplePageState extends State<samplePage> {
                 ),
               ),
             ),
+
             // <--- header section end
 
             // elevated button section --->
