@@ -27,7 +27,11 @@ class _samplePageState extends State<samplePage> {
       Shape_posY = 380,
       BackShapePosition = 30;
 
+  // Keeps track of current page
   bool pageChanged = false;
+
+  // Animation transition time. Change value to speed up or slow down the transition
+  Duration AnimationTime = Duration(milliseconds: 900);
 
   // Function to change page content
   void page_change() {
@@ -348,14 +352,14 @@ class _samplePageState extends State<samplePage> {
             // background part --->
 
             AnimatedPositioned(
-              duration: Duration(milliseconds: 1000),
+              duration: AnimationTime,
               top: Shape_posY,
               left: Shape_posX,
               child: Stack(clipBehavior: Clip.none, children: [
                 Positioned(
                   right: BackShapePosition,
                   child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 1000),
+                    duration: AnimationTime,
                     height: BackShape_height,
                     width: BackShape_width,
                     decoration: BoxDecoration(
@@ -366,7 +370,7 @@ class _samplePageState extends State<samplePage> {
                   ),
                 ),
                 AnimatedContainer(
-                  duration: const Duration(milliseconds: 1000),
+                  duration: AnimationTime,
                   height: FrontShape_height,
                   width: FrontShape_width,
                   decoration: BoxDecoration(
@@ -383,7 +387,7 @@ class _samplePageState extends State<samplePage> {
             // --> foreground image
 
             AnimatedPositioned(
-              duration: Duration(milliseconds: 1000),
+              duration: AnimationTime,
               top: image_posY,
               left: image_posX,
               child: Stack(children: [
