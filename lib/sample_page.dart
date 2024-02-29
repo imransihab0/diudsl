@@ -17,23 +17,34 @@ class _samplePageState extends State<samplePage> {
   // Properties of the shape
   double FrontShape_height = 550,
       FrontShape_width = 400,
+      Front_border_x = 50,
+      Front_border_y = 180,
+      Back_border_x = 50,
+      Back_border_y = 180,
       BackShape_height = 800,
       BackShape_width = 480,
       Shape_posX = 80,
-      Shape_posY = 380;
+      Shape_posY = 380,
+      BackShapePosition = 30;
 
   bool pageChanged = false;
 
   // Function to change page content
   void page_change() {
     setState(() {
-      BackShape_height += 800;
-      FrontShape_height += 800;
+      BackShape_height += 300;
+      FrontShape_height += 400;
       Shape_posY -= 200;
       image_height += 20;
       image_width += 20;
-      image_posX += 10;
-      image_posY -= 50;
+      Front_border_x += 300;
+      Front_border_y += 400;
+      Back_border_x += 100;
+      Back_border_y -= 400;
+      BackShapePosition -= 30;
+      BackShape_width += 50;
+      image_posX += 8;
+      image_posY -= 200;
       pageChanged = !pageChanged;
     });
   }
@@ -341,27 +352,27 @@ class _samplePageState extends State<samplePage> {
               left: Shape_posX,
               child: Stack(clipBehavior: Clip.none, children: [
                 Positioned(
-                  right: 30,
+                  right: BackShapePosition,
                   child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 800),
+                    duration: const Duration(milliseconds: 1000),
                     height: BackShape_height,
                     width: BackShape_width,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         color: Color(0xffe6eaeb),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.elliptical(650, 1000),
-                            bottomLeft: Radius.elliptical(50, 180))),
+                            bottomLeft: Radius.elliptical(Back_border_x, Back_border_y))),
                   ),
                 ),
                 AnimatedContainer(
-                  duration: const Duration(milliseconds: 800),
+                  duration: const Duration(milliseconds: 1000),
                   height: FrontShape_height,
                   width: FrontShape_width,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       color: Color(0xFF1D458B),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.elliptical(600, 800),
-                          bottomLeft: Radius.elliptical(50, 180))),
+                          bottomLeft: Radius.elliptical(Front_border_x, Front_border_y))),
                 ),
               ]),
             ),
