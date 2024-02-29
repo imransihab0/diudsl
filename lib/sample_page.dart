@@ -45,7 +45,7 @@ class _samplePageState extends State<samplePage> {
     Column first_page = Column(
       children: [
         // Research
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: page_change,
@@ -72,7 +72,7 @@ class _samplePageState extends State<samplePage> {
         ),
 
         // Our Team
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: () {},
@@ -99,7 +99,7 @@ class _samplePageState extends State<samplePage> {
         ),
 
         // Training
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: () {},
@@ -126,7 +126,7 @@ class _samplePageState extends State<samplePage> {
         ),
 
         // Resources
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: () {},
@@ -153,7 +153,7 @@ class _samplePageState extends State<samplePage> {
         ),
 
         // About Us
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: () {},
@@ -180,7 +180,7 @@ class _samplePageState extends State<samplePage> {
         ),
 
         // Contact
-        Container(
+        SizedBox(
           width: mq * 0.9,
           child: ElevatedButton(
             onPressed: () {},
@@ -210,56 +210,62 @@ class _samplePageState extends State<samplePage> {
     Column second_page = Column(
       children: [
         // Research
-        ElevatedButton(
-          onPressed: page_change,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        SizedBox(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: (){},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 150),
-          ),
-          child: const Text(
-            'Research',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Research Area',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
 
         // Our Team
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+        SizedBox(
+          width: mq * 0.9,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 0,
+              side: const BorderSide(
+                color: Colors.black,
+                width: 1,
+              ),
             ),
-            elevation: 0,
-            side: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 150),
-          ),
-          child: const Text(
-            'Our Team',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0.8,
+            child: const Text(
+              'Research Publication',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+                letterSpacing: 0.8,
+              ),
             ),
           ),
         ),
       ],
     );
+
+    // <--- second page end
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -370,11 +376,11 @@ class _samplePageState extends State<samplePage> {
                     top: MediaQuery.of(context).size.height * .1 - 85,
                     left: MediaQuery.of(context).size.width * .1 - 45,
                     child: Opacity(
+                        opacity: 0.7,
                         child: Image.asset("assets/images/inbg.png",
                             height: image_height,
                             width: image_width,
-                            color: Colors.black),
-                        opacity: 0.7)),
+                            color: Colors.black))),
                 ClipRect(
                     child: Image.asset(
                   "assets/images/inbg.png",
