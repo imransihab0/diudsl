@@ -9,14 +9,14 @@ class CustomDesign extends CustomClipper<Path> {
     double w = size.width;
     double h = size.height;
 
-     // Path path_0 = Path();
-     //  path_0.moveTo(size.width*-0.0019000,size.height*0.4945625);
-     //  path_0.lineTo(size.width*0.1702667,size.height*0.7906875);
-     //  path_0.lineTo(size.width*1.0019000,size.height*0.5199375);
-     //  path_0.lineTo(size.width*1.0022333,size.height*-0.0213125);
-     //  path_0.lineTo(size.width*-0.0036667,size.height*-0.0066875);
-     //  path_0.lineTo(size.width*-0.0019000,size.height*0.4945625);
-     //  path_0.close();
+    // Path path_0 = Path();
+    //  path_0.moveTo(size.width*-0.0019000,size.height*0.4945625);
+    //  path_0.lineTo(size.width*0.1702667,size.height*0.7906875);
+    //  path_0.lineTo(size.width*1.0019000,size.height*0.5199375);
+    //  path_0.lineTo(size.width*1.0022333,size.height*-0.0213125);
+    //  path_0.lineTo(size.width*-0.0036667,size.height*-0.0066875);
+    //  path_0.lineTo(size.width*-0.0019000,size.height*0.4945625);
+    //  path_0.close();
 
     Path path_0 = Path();
     path_0.moveTo(size.width * -0.0030000, size.height * 0.5728571);
@@ -69,7 +69,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     width: MediaQuery.of(context).size.width,
                     height: 150,
                     color: Colors.white,
-                      ),
+                  ),
                   Positioned(
                     left: w*.07,
                     top: h*.02,
@@ -80,7 +80,7 @@ class _TrainingPageState extends State<TrainingPage> {
                   )
                 ],
               ),
-                ),
+            ),
             Container(
               height: 400,
               width: w*.95,
@@ -111,5 +111,3 @@ class _TrainingPageState extends State<TrainingPage> {
     );
   }
 }
-
-
