@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomDesign extends CustomClipper<Path> {
@@ -47,22 +48,64 @@ class TrainingPage extends StatefulWidget {
 class _TrainingPageState extends State<TrainingPage> {
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: CustomDesign(),
-      child: Container(
-        child: const SizedBox(
-          height: 150,
-          child: Padding(
-            padding: EdgeInsets.only(left: 30, top: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+    double h = MediaQuery.of(context).size.height, w = MediaQuery.of(context).size.width;
 
+    return Scaffold(
+      backgroundColor: Color(0xFF1D458B),
+      appBar: AppBar(
+        title: Center(child: Text("Training",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),)),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ClipPath(
+              clipper: CustomDesign(),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 150,
+                    color: Colors.white,
+                      ),
+                  Positioned(
+                    left: w*.07,
+                    top: h*.02,
+                    child: Text("Training Events",
+                      style: TextStyle(fontSize: 34,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green.shade600),),
+                  )
+                ],
+              ),
+                ),
+            Container(
+              height: 400,
+              width: w*.95,
+              color: Colors.black54,
+              child: Column(
+                children: [
+                  Center(child: Text("Quiz",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white, ),
+                  ))
+                ],
+              ),
+            ),
+            Container(
+              height: 400,
+              width: w*.95,
+              color: Colors.black54,
+              child: Column(
+                children: [
+                  Center(child: Text("Resources",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white, ),
+                  ))
+                ],
+              ),
+            ),
           ],
         ),
       ),
-    ),
-    ),
     );
   }
 }
