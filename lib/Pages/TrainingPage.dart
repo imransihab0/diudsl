@@ -50,6 +50,8 @@ class _TrainingPageState extends State<TrainingPage> {
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height, w = MediaQuery.of(context).size.width;
 
+
+
     return Scaffold(
       backgroundColor: Color(0xFF1D458B),
       appBar: AppBar(
