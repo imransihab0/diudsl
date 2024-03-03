@@ -159,10 +159,18 @@ class _TrainingPageState extends State<TrainingPage> {
 
     // This will show for showing result
     Container ResultPage = Container(
-      height: h * 0.2,
+      height: h * 0.5,
       width: w * 0.2,
+      // color: Color(0xFFf2f2f2),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/resultbg.jpg'),
+          fit: BoxFit.fill,
+        ),
+      ),
       child: Column(
         children: [
+          Spacer(),
           const Text(
             'Congratulations!',
             style: TextStyle(
@@ -174,11 +182,12 @@ class _TrainingPageState extends State<TrainingPage> {
           Text(
             'Your Score: $result',
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 20,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.bold,
             ),
           ),
+          Spacer(),
         ],
       ),
     );
