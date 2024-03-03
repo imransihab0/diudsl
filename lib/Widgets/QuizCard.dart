@@ -9,20 +9,20 @@ TextStyle Style = TextStyle(fontSize: 21,fontWeight: FontWeight.bold,color: Base
 class QuizCard extends StatefulWidget {
   final TextEditingController controller;
   final List info;
-  final Function() ButtonClick;
-  const QuizCard({super.key, required this.info, required this.ButtonClick, required this.controller});
+
+  const QuizCard({super.key, required this.info,  required this.controller});
 
   @override
-  State<QuizCard> createState() => _QuizCardState(this.info,this.ButtonClick);
+  State<QuizCard> createState() => _QuizCardState(this.info);
 }
 
 class _QuizCardState extends State<QuizCard> {
   List info;
-  Function() ButtonClick;
   bool click1 = false, click2 = false, click3 = false, click4 = false;
 
 
-  _QuizCardState(this.info, this.ButtonClick);
+
+  _QuizCardState(this.info);
 
   @override
   Widget build(BuildContext context) {
