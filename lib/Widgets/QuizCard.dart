@@ -140,8 +140,9 @@ class _QuizCardState extends State<QuizCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(qstn, style: Style,),
+            SizedBox(height: 5,),
             SizedBox(
-              height: 200,
+              height: 250,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: Quizbuttons,
