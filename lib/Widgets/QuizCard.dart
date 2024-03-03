@@ -95,20 +95,6 @@ class _QuizCardState extends State<QuizCard> {
     List<bool> clicked = [click1,click2,click3,click4];
     List<String> OptionText = [info[1],info[2],info[3],info[4]];
 
-    Row BottomButton = Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        ElevatedButton(onPressed: ButtonClick,
-            style : ElevatedButton.styleFrom(
-              backgroundColor: BaseColor,
-              elevation: 4,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-            child: Text(info[5],style: Style.copyWith(fontSize: 18,color: Colors.white),))
-      ],);
 
     for(int i=0; i<4; i++)
     {
@@ -157,7 +143,6 @@ class _QuizCardState extends State<QuizCard> {
                 children: Quizbuttons,
               ),
             ),
-            BottomButton
           ],),
       ),
     );

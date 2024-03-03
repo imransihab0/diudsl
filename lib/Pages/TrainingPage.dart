@@ -4,6 +4,7 @@ import 'package:diudsl/Widgets/CustomInfoContainer.dart';
 import 'package:diudsl/Widgets/QuizCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CustomDesign extends CustomClipper<Path> {
   @override
@@ -46,34 +47,71 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPageState extends State<TrainingPage> {
-  List quizContents = Quizes;
+
   List<QuizCard> quizes = [];
+  bool isPressed = false;
+  double quizH = 400 ;
+  int time = 600;
 
 
   @override
+
+
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height,
-        w = MediaQuery.of(context).size.width;
+        w = MediaQuery.of(context).size.width,
+        quizW = w*.9;
 
-    int counter = 0;
-    quizContents.forEach((element) {
-      quizes.add(
-        QuizCard(info: element, ButtonClick: (){}, controller: TextEditingController())
-      );
+
+
+    void QuizButton(){
+    setState(() {
+    isPressed = true;
+    quizH = h*.75;
+
     });
+    }
+
+
+
+for (var element in QuizText.Quizes) {
+        // element[0] = "${i.toString()}. ${element[0]}";
+        quizes.add(QuizCard(
+            info: element,
+            ButtonClick: (){},
+            controller: TextEditingController()));
+      }
+
+
+    AnimatedContainer quizPage = AnimatedContainer(
+      duration: Duration(milliseconds: time),
+      height: quizH-50,
+        child: SingleChildScrollView(
+            child:  isPressed ? Column(children: quizes,):ElevatedButton(
+              child:Text("Start Quiz"),
+              onPressed: QuizButton,
+            )
+        )
+    );
+
+
+
+
 
     return Scaffold(
+
       backgroundColor: const Color(0xFF1D458B),
       appBar: AppBar(
         title: const Center(
             child: Text(
-          "Training",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-        )),
+              "Training",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+            )),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Upper style
             ClipPath(
               clipper: CustomDesign(),
               child: Stack(
@@ -99,43 +137,43 @@ class _TrainingPageState extends State<TrainingPage> {
               ),
             ),
 
-            Container(
-              height: 400,
-              width: w * .95,
+            // quiz widget
+            AnimatedContainer(
+
+              duration: Duration(milliseconds: time),
+              height: quizH,
+              width: quizW,
               child: Column(
                 children: [
-                  Center(
+                  const Center(
                       child: Text(
-                    "Quiz",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  )),
-                  QuizCard(
-                      info: ["1. What is python?","Snake","Programming language","Food","Somuddoro","Next"],
-                      ButtonClick: (){},
-                      controller: TextEditingController(),
-                  )
+                        "Quiz",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      )),
+                  quizPage
                 ],
               ),
             ),
 
-            Container(
+            // Resources contents
+            isPressed? SizedBox() : Container(
               width: w * .95,
               color: const Color(0xFF1D458B),
               child: const Column(
                 children: [
                   Center(
                       child: Text(
-                    "Resources",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  )),
+                        "Resources",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      )),
 
                   CustomContainer(
                     pathName: 'assets/images/simg.jpg',
