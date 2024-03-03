@@ -12,15 +12,6 @@ class CustomDesign extends CustomClipper<Path> {
     double w = size.width;
     double h = size.height;
 
-    // Path path_0 = Path();
-    //  path_0.moveTo(size.width*-0.0019000,size.height*0.4945625);
-    //  path_0.lineTo(size.width*0.1702667,size.height*0.7906875);
-    //  path_0.lineTo(size.width*1.0019000,size.height*0.5199375);
-    //  path_0.lineTo(size.width*1.0022333,size.height*-0.0213125);
-    //  path_0.lineTo(size.width*-0.0036667,size.height*-0.0066875);
-    //  path_0.lineTo(size.width*-0.0019000,size.height*0.4945625);
-    //  path_0.close();
-
     Path path_0 = Path();
     path_0.moveTo(size.width * -0.0030000, size.height * 0.5728571);
     path_0.lineTo(size.width * 0.1615125, size.height * 0.8609286);
@@ -83,8 +74,21 @@ class _TrainingPageState extends State<TrainingPage> {
                     children: quizes,
                   )
                 : ElevatedButton(
-                    child: Text("Start Quiz"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff0a8144),
+                      elevation: 4,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
                     onPressed: QuizButton,
+                    child: const Text("Start Quiz",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        )),
                   )));
 
     return Scaffold(
@@ -130,6 +134,8 @@ class _TrainingPageState extends State<TrainingPage> {
               duration: Duration(milliseconds: time),
               height: quizH,
               width: quizW,
+              color: const Color(0xFF4d76bf).withOpacity(.5),
+              // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
               child: Column(
                 children: [
                   const Center(
@@ -141,7 +147,8 @@ class _TrainingPageState extends State<TrainingPage> {
                       color: Colors.white,
                     ),
                   )),
-                  quizPage
+                  // Image(image: AssetImage('assets/images/quiz.jpg')),
+                  quizPage,
                 ],
               ),
             ),
