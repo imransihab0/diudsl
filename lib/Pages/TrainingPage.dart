@@ -159,7 +159,7 @@ class _TrainingPageState extends State<TrainingPage> {
 
     // This will show for showing result
     Container ResultPage = Container(
-      height: h * 0.5,
+      height: h * 0.4,
       width: w * 0.2,
       // color: Color(0xFFf2f2f2),
       decoration: BoxDecoration(
@@ -192,7 +192,7 @@ class _TrainingPageState extends State<TrainingPage> {
       ),
     );
 
-    Container ShowWidget = resultPage ? ResultPage : quizFrontpage;
+    Container ShowWidget = resultPage ? ResultPage : ResultPage;
 
     AnimatedContainer QuizWidget = AnimatedContainer(
         duration: Duration(milliseconds: time),
