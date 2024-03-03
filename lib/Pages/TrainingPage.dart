@@ -68,24 +68,32 @@ class _TrainingPageState extends State<TrainingPage> {
     }
 
     Container quizFrontpage = Container(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff0a8144),
-          elevation: 4,
-          padding: const EdgeInsets.symmetric(
-              horizontal: 30, vertical: 10),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+      child: Column(
+        children: [
+          Image.asset("assets/images/quiz.jpg"),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xff0a8144),
+              elevation: 4,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 30, vertical: 10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+            onPressed: QuizButton,
+            child: const Text("Start Quiz",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                )),
           ),
-        ),
-        onPressed: QuizButton,
-        child: const Text("Start Quiz",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            )),
+        ],
       ),
     );
+
+
+
 
 
     AnimatedContainer QuizWidget = AnimatedContainer(
@@ -152,8 +160,8 @@ class _TrainingPageState extends State<TrainingPage> {
               ),
               child: Column(
                 children: [
-                  const Center(
-                      child: Text(
+                  Center(
+                      child: isPressed ? Row() : Text(
                     "Quiz",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
