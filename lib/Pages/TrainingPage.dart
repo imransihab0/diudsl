@@ -47,66 +47,54 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPageState extends State<TrainingPage> {
-
   List<QuizCard> quizes = [];
   bool isPressed = false;
-  double quizH = 400 ;
+  double quizH = 400;
+
   int time = 600;
 
-
   @override
-
-
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height,
         w = MediaQuery.of(context).size.width,
-        quizW = w*.9;
+        quizW = w * .9;
 
-
-
-    void QuizButton(){
-    setState(() {
-    isPressed = true;
-    quizH = h*.75;
-
-    });
+    void QuizButton() {
+      setState(() {
+        isPressed = true;
+        quizH = h * .75;
+      });
     }
 
-
-
-for (var element in QuizText.Quizes) {
-        // element[0] = "${i.toString()}. ${element[0]}";
-        quizes.add(QuizCard(
-            info: element,
-            ButtonClick: (){},
-            controller: TextEditingController()));
-      }
-
+    for (var element in QuizText.Quizes) {
+      // element[0] = "${i.toString()}. ${element[0]}";
+      quizes.add(QuizCard(
+          info: element,
+          ButtonClick: () {},
+          controller: TextEditingController()));
+    }
 
     AnimatedContainer quizPage = AnimatedContainer(
-      duration: Duration(milliseconds: time),
-      height: quizH-50,
+        duration: Duration(milliseconds: time),
+        height: quizH - 50,
         child: SingleChildScrollView(
-            child:  isPressed ? Column(children: quizes,):ElevatedButton(
-              child:Text("Start Quiz"),
-              onPressed: QuizButton,
-            )
-        )
-    );
-
-
-
-
+            child: isPressed
+                ? Column(
+                    children: quizes,
+                  )
+                : ElevatedButton(
+                    child: Text("Start Quiz"),
+                    onPressed: QuizButton,
+                  )));
 
     return Scaffold(
-
       backgroundColor: const Color(0xFF1D458B),
       appBar: AppBar(
         title: const Center(
             child: Text(
-              "Training",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-            )),
+          "Training",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+        )),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -139,7 +127,6 @@ for (var element in QuizText.Quizes) {
 
             // quiz widget
             AnimatedContainer(
-
               duration: Duration(milliseconds: time),
               height: quizH,
               width: quizW,
@@ -147,73 +134,80 @@ for (var element in QuizText.Quizes) {
                 children: [
                   const Center(
                       child: Text(
-                        "Quiz",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                          color: Colors.white,
-                        ),
-                      )),
+                    "Quiz",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
+                  )),
                   quizPage
                 ],
               ),
             ),
 
             // Resources contents
-            isPressed? SizedBox() : Container(
-              width: w * .95,
-              color: const Color(0xFF1D458B),
-              child: const Column(
-                children: [
-                  Center(
-                      child: Text(
-                        "Resources",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                          color: Colors.white,
+            isPressed
+                ? SizedBox()
+                : Container(
+                    width: w * .95,
+                    color: const Color(0xFF1D458B),
+                    child: const Column(
+                      children: [
+                        Center(
+                            child: Text(
+                          "Resources",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Colors.white,
+                          ),
+                        )),
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
                         ),
-                      )),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        ),
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        ),
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        ),
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        ),
+                        CustomContainer(
+                          pathName: 'assets/images/simg.jpg',
+                          partialText:
+                              'In Python, a module is a fundamental unit of code organization and reusability.',
+                          fullText:
+                              'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
+                        ),
+                      ],
+                    ),
                   ),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
-                  ),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
-                  ),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
-                  ),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
-                  ),
-
-                  CustomContainer(
-                    pathName: 'assets/images/simg.jpg',
-                    partialText: 'In Python, a module is a fundamental unit of code organization and reusability.',
-                    fullText: 'In Python, a module is a fundamental unit of code organization and reusability. It\'s essentially a Python file (.py extension) containing a collection of definitions and statements.',
-                  ),
-
-                ],
-              ),
-            ),
           ],
         ),
       ),
