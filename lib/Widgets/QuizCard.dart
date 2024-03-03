@@ -26,12 +26,14 @@ class _QuizCardState extends State<QuizCard> {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width,
+    h = MediaQuery.of(context).size.height;
 
     final String question = info[0];
 
     String qstn = question;
 
-    // For center whitebox
+    // For center white-box
     Center MidBox = Center(
       child: Padding(
         padding: const EdgeInsets.all(1),
@@ -112,7 +114,9 @@ class _QuizCardState extends State<QuizCard> {
               child: clicked[i]?Center(child: Icon(Icons.check, color: Colors.white,size: 20,)) : MidBox,
             ),
             SizedBox(width: 15,),
-            Text(OptionText[i], style: Style.copyWith(fontSize: 18),)
+            Container(
+              width : w*.63,
+              child: Text(OptionText[i], style: Style.copyWith(fontSize: 18),))
           ],
         ),
       ));
@@ -121,8 +125,8 @@ class _QuizCardState extends State<QuizCard> {
 
 
     return Container(
-      height: 320,
-      width: MediaQuery.of(context).size.width,
+
+      width: w,
       margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.white,
