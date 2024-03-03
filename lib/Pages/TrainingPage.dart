@@ -38,18 +38,17 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPageState extends State<TrainingPage> {
-
   bool isPressed = false, // Checks if the current page quiz page
       resultPage = false; // Checks if the page is result page or front page
-  double quizH = 400,rnd = 5;
-  int time = 600,result=0;
+  double quizH = 400, rnd = 5;
+  int time = 600, result = 0;
   List ans = [];
-
 
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height,
-          w = MediaQuery.of(context).size.width,quizW = w*.9;
+        w = MediaQuery.of(context).size.width,
+        quizW = w * .9;
     List<QuizCard> quizes = [];
 
     void QuizButton() {
@@ -61,74 +60,65 @@ class _TrainingPageState extends State<TrainingPage> {
     }
 
     // Process result
-    void resultFunction(){
+    void resultFunction() {
       bool hasAnswered = true;
       quizes.forEach((qstn) {
-        if(qstn.controller.text == "")
-          {
-            hasAnswered = false;
-          }
+        if (qstn.controller.text == "") {
+          hasAnswered = false;
+        }
       });
-      if(hasAnswered)
-        {
-          quizes.forEach((qstn) {
-            if(ans.length<=quizes.length) {
+      if (hasAnswered) {
+        quizes.forEach((qstn) {
+          if (ans.length <= quizes.length) {
             ans.add(qstn.controller.text);
           }
-          if(qstn.controller.text == qstn.info[5])
-              {
-                result++;
-              }
-          });
-          quizH = 400; rnd = 5; result=0;
-          isPressed = false;
-          resultPage = true;
-        }
-      else{
+          if (qstn.controller.text == qstn.info[5]) {
+            result++;
+          }
+        });
+        quizH = 400;
+        rnd = 5;
+        isPressed = false;
+        resultPage = true;
+      } else {
         const message = SnackBar(
           content: Center(
               child: Text(
-                "Answer all questions to proceed",
-                style:
-                TextStyle(fontSize: 15, ),
-              )),
+            "Answer all questions to proceed",
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          )),
           duration: Duration(seconds: 2),
         );
         ScaffoldMessenger.of(context).showSnackBar(message);
       }
-      setState(() {
-      });
+      setState(() {});
     }
 
     // This function is for exit button in quiz page
-    void ExitButton(){
-      quizH = 400; rnd = 5; result=0;
+    void ExitButton() {
+      quizH = 400;
+      rnd = 5;
+      result = 0;
       isPressed = false;
-      setState(() {
-      });
+      setState(() {});
     }
-
-
 
     for (var element in QuizText.Quizes) {
-
-      quizes.add(QuizCard(
-          info: element,
-          controller: TextEditingController()));
+      quizes.add(QuizCard(info: element, controller: TextEditingController()));
     }
-
 
     // shows this as frontpage in quiz part
     Container quizFrontpage = Container(
       child: Column(
         children: [
-          Image.asset("assets/images/quiz.jpg"),
+          Image.asset("assets/images/quiz.png"),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xff0a8144),
               elevation: 4,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 30, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -144,39 +134,60 @@ class _TrainingPageState extends State<TrainingPage> {
       ),
     );
 
-
     // Quiz page
-    Column quizPage = Column(children: [
-      Column(
-        children: quizes,
-      ),
-      ElevatedButton(
-          onPressed: resultFunction,
-          child: Text("See Result",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: BaseColor),)),
-      SizedBox(height: 20,)
-    ],);
-
-
+    Column quizPage = Column(
+      children: [
+        Column(
+          children: quizes,
+        ),
+        ElevatedButton(
+            onPressed: resultFunction,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xff0a8144),
+              elevation: 4,
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+            child: Text(
+              "See Result",
+              style: TextStyle(
+                  fontSize: 16, color: Colors.white),
+            )),
+        SizedBox(
+          height: 20,
+        )
+      ],
+    );
 
     // This will show for showing result
-    Container ResultPage = Container(height: 50,width: 50,color: Colors.green);
+    Container ResultPage = Container(
+      height: h*0.2,
+      width: w*0.2,
+      child: Column(
+        children: [
+          Text('Congratulations!', style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 26,
+            color: Colors.green,
+          ),),
+          Text('Your Score: $result', style: TextStyle(
+            fontSize: 18,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
+          ),),
+        ],
+      ),
+    );
 
-
-
-    Container ShowWidget =  resultPage? ResultPage : quizFrontpage;
-
-
+    Container ShowWidget = resultPage ? ResultPage : quizFrontpage;
 
     AnimatedContainer QuizWidget = AnimatedContainer(
         duration: Duration(milliseconds: time),
         height: quizH - 50,
         width: quizW,
-
-        child: SingleChildScrollView(
-            child: isPressed
-                ? quizPage
-                : ShowWidget)
-    );
+        child: SingleChildScrollView(child: isPressed ? quizPage : ShowWidget));
 
     return Scaffold(
       backgroundColor: const Color(0xFF1D458B),
@@ -224,8 +235,10 @@ class _TrainingPageState extends State<TrainingPage> {
 
               // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(rnd),topRight: Radius.circular(rnd)),
-                  color: const Color(0xFF4d76bf).withOpacity(.5),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(rnd),
+                    topRight: Radius.circular(rnd)),
+                color: const Color(0xFF4d76bf).withOpacity(.5),
               ),
               child: Column(
                 children: [
@@ -238,7 +251,9 @@ class _TrainingPageState extends State<TrainingPage> {
                       color: Colors.white,
                     ),
                   )),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   // Image(image: AssetImage('assets/images/quiz.jpg')),
                   QuizWidget,
                 ],
