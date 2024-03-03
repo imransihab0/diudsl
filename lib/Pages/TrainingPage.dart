@@ -192,7 +192,7 @@ class _TrainingPageState extends State<TrainingPage> {
       ),
     );
 
-    Container ShowWidget = resultPage ? ResultPage : ResultPage;
+    Container ShowWidget = resultPage ? ResultPage : quizFrontpage;
 
     AnimatedContainer QuizWidget = AnimatedContainer(
         duration: Duration(milliseconds: time),
