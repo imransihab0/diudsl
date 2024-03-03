@@ -38,16 +38,19 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPageState extends State<TrainingPage> {
-  List<QuizCard> quizes = [];
-  bool isPressed = false;
+
+  bool isPressed = false, // Checks if the current page quiz page
+      resultPage = false; // Checks if the page is result page or front page
   double quizH = 400,rnd = 5;
-  int time = 600;
+  int time = 600,result=0;
+  List ans = [];
+
 
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height,
           w = MediaQuery.of(context).size.width,quizW = w*.9;
-
+    List<QuizCard> quizes = [];
 
     void QuizButton() {
       setState(() {
@@ -57,16 +60,65 @@ class _TrainingPageState extends State<TrainingPage> {
       });
     }
 
+    // Process result
+    void resultFunction(){
+      bool hasAnswered = true;
+      quizes.forEach((qstn) {
+        if(qstn.controller.text == "")
+          {
+            hasAnswered = false;
+          }
+      });
+      if(hasAnswered)
+        {
+          quizes.forEach((qstn) {
+            if(ans.length<=quizes.length) {
+            ans.add(qstn.controller.text);
+          }
+          if(qstn.controller.text == qstn.info[5])
+              {
+                result++;
+              }
+          });
+          quizH = 400; rnd = 5; result=0;
+          isPressed = false;
+          resultPage = true;
+        }
+      else{
+        const message = SnackBar(
+          content: Center(
+              child: Text(
+                "Answer all questions to proceed",
+                style:
+                TextStyle(fontSize: 15, ),
+              )),
+          duration: Duration(seconds: 2),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(message);
+      }
+      setState(() {
+      });
+    }
+
+    // This function is for exit button in quiz page
+    void ExitButton(){
+      quizH = 400; rnd = 5; result=0;
+      isPressed = false;
+      setState(() {
+      });
+    }
+
 
 
     for (var element in QuizText.Quizes) {
-      // element[0] = "${i.toString()}. ${element[0]}";
+
       quizes.add(QuizCard(
           info: element,
-          ButtonClick: () {},
           controller: TextEditingController()));
     }
 
+
+    // shows this as frontpage in quiz part
     Container quizFrontpage = Container(
       child: Column(
         children: [
@@ -93,6 +145,25 @@ class _TrainingPageState extends State<TrainingPage> {
     );
 
 
+    // Quiz page
+    Column quizPage = Column(children: [
+      Column(
+        children: quizes,
+      ),
+      ElevatedButton(
+          onPressed: resultFunction,
+          child: Text("See Result",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: BaseColor),)),
+      SizedBox(height: 20,)
+    ],);
+
+
+
+    // This will show for showing result
+    Container ResultPage = Container(height: 50,width: 50,color: Colors.green);
+
+
+
+    Container ShowWidget =  resultPage? ResultPage : quizFrontpage;
 
 
 
@@ -103,10 +174,8 @@ class _TrainingPageState extends State<TrainingPage> {
 
         child: SingleChildScrollView(
             child: isPressed
-                ? Column(
-                    children: quizes,
-                  )
-                : quizFrontpage)
+                ? quizPage
+                : ShowWidget)
     );
 
     return Scaffold(
@@ -161,7 +230,7 @@ class _TrainingPageState extends State<TrainingPage> {
               child: Column(
                 children: [
                   Center(
-                      child: isPressed ? Row() : Text(
+                      child: Text(
                     "Quiz",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
