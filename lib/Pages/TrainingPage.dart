@@ -64,16 +64,23 @@ class _TrainingPageState extends State<TrainingPage> {
     // Process result
     void resultFunction() {
       bool hasAnswered = true;
+      int i = 0;
       quizes.forEach((qstn) {
+        qstn.controller.text = ans[i]=="" ? qstn.controller.text : ans[i];
+
+        if(qstn.controller.text!= "") {
+          ans[i] = qstn.controller.text;
+        }
+
         if (qstn.controller.text == "") {
           hasAnswered = false;
         }
+
+        i++;
       });
       if (hasAnswered) {
         quizes.forEach((qstn) {
-          if (ans.length <= quizes.length) {
-            ans.add(qstn.controller.text);
-          }
+
           if (qstn.controller.text == qstn.info[5]) {
             result++;
           }
@@ -120,6 +127,13 @@ class _TrainingPageState extends State<TrainingPage> {
         CustomContainer(pathName: element[0], partialText: element[1], fullText: element[2])
       );
     });
+
+
+    while(ans.length<quizes.length)
+      {
+        ans.add("");
+      }
+
 
 
 
